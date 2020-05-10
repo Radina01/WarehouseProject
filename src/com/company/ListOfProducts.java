@@ -25,8 +25,8 @@ public class ListOfProducts<T extends Product>  {
                     "Мерна единица:  " + product.getUnit() + '\n' +
                     "Налично количество: " + product.getAvailableQuantity() + '\n' +
                     "Местоположение: " + product.getLocation() + '\n' +
-                    "Допустим брой на продуктите на рафт: " + product.getAllowableShelfValue() +
-                    "Коментар: " + product.getComment());
+                    "Допустим брой на продуктите на рафт: " + product.getAllowableShelfValue() + '\n' +
+                    "Коментар: " + product.getComment() + '\n');
         }
     }
 }

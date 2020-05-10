@@ -5,6 +5,7 @@ public class Product {
     private String description;
     private String expiryDate;
     private String dateEntryInWarehouse;
+    private String nameProducer;
     private String unit;
     private String availableQuantity;
     private String location;
@@ -12,11 +13,12 @@ public class Product {
     private String comment;
 
 
-    public Product(String nameProduct, String description, String expiryDate, String dateEntryInWarehouse, String unit, String availableQuantity, String location, String allowableShelfValue, String comment) {
+    public Product(String nameProduct, String description, String expiryDate, String dateEntryInWarehouse, String nameProducer, String unit, String availableQuantity, String location, String allowableShelfValue, String comment) {
         this.nameProduct = nameProduct;
         this.description = description;
         this.expiryDate = expiryDate;
         this.dateEntryInWarehouse = dateEntryInWarehouse;
+        this.nameProducer = nameProducer;
         this.unit = unit;
         this.availableQuantity = availableQuantity;
         this.location = location;
@@ -60,5 +62,8 @@ public class Product {
         return comment;
     }
 
+    public String getNameProducer() {
+        return nameProducer;
+    }
 }
 
