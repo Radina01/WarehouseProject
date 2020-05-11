@@ -7,6 +7,6 @@ public class AddProductsToListAndPrint {
     public void addAndPrintProducts() {
         listOfProducts.addToTable(potatoes);
         listOfProducts.addToTable(tomatoes);
-        listOfProducts.writeToDataBase();
+        listOfProducts.printProducts();
     }
 }

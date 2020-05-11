@@ -16,12 +16,14 @@ public class ListOfProducts<T extends Product>  {
         this.t = t;
     }
 
-    public void writeToDataBase() {
+    public void printProducts() {
         for (T product : tableWithProducts) {
-            System.out.println("Име: " + product.getNameProduct() + '\n' +
+            System.out.println(
+                    "Име: " + product.getNameProduct() + '\n' +
                     "Описание: " + product.getDescription() + '\n' +
                     "Срок на годност: " + product.getExpiryDate() + '\n' +
                     "Дата на постъпване на продукта в склада: " + product.getDateEntryInWarehouse() + '\n' +
+                    "Име на производител: " + product.getNameProducer() + '\n' +
                     "Мерна единица:  " + product.getUnit() + '\n' +
                     "Налично количество: " + product.getAvailableQuantity() + '\n' +
                     "Местоположение: " + product.getLocation() + '\n' +
@@ -29,4 +31,5 @@ public class ListOfProducts<T extends Product>  {
                     "Коментар: " + product.getComment() + '\n');
         }
     }
+    
 }
