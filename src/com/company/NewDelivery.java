@@ -1,95 +1,88 @@
 package com.company;
 
-import java.util.List;
 import java.util.Scanner;
 
-public class NewDelivery<T> {
+public class NewDelivery {
     Scanner scanner = new Scanner(System.in);
     String newName;
     String newDescription;
     String newExpiryDate;
     String newDateOfEnteringTheWarehouse;
     String newUnit;
-    String newAvailableQuantity;
-    String newLocation;
+    int newAvailableQuantity;
     String newAllowableShelfValue;
     String newComment;
     String newNameProducer;
-    List<T> tableWithProducts;
 
-    /*public T check() {
-        for (T product : tableWithProducts) {
-            if (product.getNameProduct().equals(enterNameOfNewProduct())) {
-                if (product.getExpiryDate().equals(enterExpiryDateOfNewProduct())) {
-                    tableWithProducts.remove(product);
-
-                }
-            }
-        }
+    public void enterData() {
+        enterNameOfNewProduct();
+        enterDescriptionOfNewProduct();
+        enterExpiryDateOfNewProduct();
+        enterDateOfEnteringTheWarehouseOfNewProduct();
+        enterNameProducerOfNewProduct();
+        enterUnitOfNewProduct();
+        enterAvailableQuantityOfNewProduct();
+        enterAllowableShelfValueOfNewProduct();
+        enterCommentOfNewProduct();
+        Warehouse.getWarehouse().addToTable(makeNewProductObject());
     }
 
-    /*public Object makeNewProductObject() {
-        T product = new T(newName, newDescription, newExpiryDate, newDateOfEnteringTheWarehouse, newNameProducer, newUnit, newAvailableQuantity, newLocation, newAllowableShelfValue, newComment);
+    public Product makeNewProductObject() {
+        Product product = new Product(newName, newDescription, newExpiryDate, newDateOfEnteringTheWarehouse, newNameProducer, newUnit, newAvailableQuantity, newAllowableShelfValue, newComment);
         return product;
-    }*/
+    }
 
     public String enterNameOfNewProduct() {
-        this.newName = scanner.next();
         System.out.println("Въведете името на продукта, който искате да поръчате: " + newName);
+        this.newName = scanner.next();
         return newName;
     }
 
     public String enterDescriptionOfNewProduct() {
-        this.newDescription = scanner.next();
         System.out.println("Въведете описанието на продукта, който искате да поръчате: " + newDescription);
+        this.newDescription = scanner.next();
         return newDescription;
     }
 
     public String enterExpiryDateOfNewProduct() {
-        this.newExpiryDate = scanner.next();
         System.out.println("Въведете срока на годност на продукта, който искате да поръчате: " + newExpiryDate);
+        this.newExpiryDate = scanner.next();
         return newExpiryDate;
     }
 
     public String enterDateOfEnteringTheWarehouseOfNewProduct() {
+        System.out.println("Въведете дата на постъпване на продукта в склада, който искате да поръчате: " + newDateOfEnteringTheWarehouse);
         this.newDateOfEnteringTheWarehouse = scanner.next();
-        System.out.println("Въведете описанието продукта, който искате да поръчате: " + newDateOfEnteringTheWarehouse);
         return newDateOfEnteringTheWarehouse;
     }
 
     public String enterUnitOfNewProduct() {
-        this.newUnit = scanner.next();
         System.out.println("Въведете описанието продукта, който искате да поръчате: " + newUnit);
+        this.newUnit = scanner.next();
         return newUnit;
     }
 
-    public String enterLocationOfNewProduct() {
-        this.newLocation = scanner.next();
-        System.out.println("Въведете описанието продукта, който искате да поръчате: " + newLocation);
-        return newLocation;
-    }
-
     public String enterAllowableShelfValueOfNewProduct() {
-        this.newAllowableShelfValue = scanner.next();
         System.out.println("Въведете описанието продукта, който искате да поръчате: " + newAllowableShelfValue);
+        this.newAllowableShelfValue = scanner.next();
         return newAllowableShelfValue;
     }
 
     public String enterCommentOfNewProduct() {
-        this.newComment = scanner.next();
         System.out.println("Въведете описанието продукта, който искате да поръчате: " + newComment);
+        this.newComment = scanner.next();
         return newComment;
     }
 
     public String enterNameProducerOfNewProduct() {
-        this.newNameProducer = scanner.next();
         System.out.println("Въведете описанието продукта, който искате да поръчате: " + newNameProducer);
+        this.newNameProducer = scanner.next();
         return newNameProducer;
     }
 
-    public String enterAvailableQuantityOfNewProduct() {
-        this.newAvailableQuantity = scanner.next();
-        System.out.println("Въведете описанието продукта, който искате да поръчате: " + newAvailableQuantity);
+    public int enterAvailableQuantityOfNewProduct() {
+        System.out.println("Въведете количеството на продукта, който искате да поръчате: " + newAvailableQuantity);
+        this.newAvailableQuantity = scanner.nextInt();
         return newAvailableQuantity;
     }
 }

@@ -7,13 +7,13 @@ public class Product {
     private String dateEntryInWarehouse;
     private String nameProducer;
     private String unit;
-    private String availableQuantity;
+    private int availableQuantity;
     private String location;
     private String allowableShelfValue;
     private String comment;
 
 
-    public Product(String nameProduct, String description, String expiryDate, String dateEntryInWarehouse, String nameProducer, String unit, String availableQuantity, String location, String allowableShelfValue, String comment) {
+    public Product(String nameProduct, String description, String expiryDate, String dateEntryInWarehouse, String nameProducer, String unit, int availableQuantity, String allowableShelfValue, String comment) {
         this.nameProduct = nameProduct;
         this.description = description;
         this.expiryDate = expiryDate;
@@ -21,7 +21,6 @@ public class Product {
         this.nameProducer = nameProducer;
         this.unit = unit;
         this.availableQuantity = availableQuantity;
-        this.location = location;
         this.allowableShelfValue = allowableShelfValue;
         this.comment = comment;
     }
@@ -46,7 +45,7 @@ public class Product {
         return unit;
     }
 
-    public String getAvailableQuantity() {
+    public int getAvailableQuantity() {
         return availableQuantity;
     }
 
@@ -64,6 +63,46 @@ public class Product {
 
     public String getNameProducer() {
         return nameProducer;
+    }
+
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setExpiryDate(String expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
+    public void setDateEntryInWarehouse(String dateEntryInWarehouse) {
+        this.dateEntryInWarehouse = dateEntryInWarehouse;
+    }
+
+    public void setNameProducer(String nameProducer) {
+        this.nameProducer = nameProducer;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public void setAvailableQuantity(int availableQuantity) {
+        this.availableQuantity = availableQuantity;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setAllowableShelfValue(String allowableShelfValue) {
+        this.allowableShelfValue = allowableShelfValue;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
 

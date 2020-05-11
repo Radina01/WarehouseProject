@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        NewDelivery newDelivery = new NewDelivery();
+        AddProductsToListAndPrint addProductsToListAndPrint = new AddProductsToListAndPrint();
         while (true) {
             System.out.println("------------------------------------\n" +
                     "   1. Списък на наличните продукти\n" +
@@ -21,11 +23,12 @@ public class Main {
 
             switch (chosenOption) {
                 case 1:
-                    AddProductsToListAndPrint addProductsToListAndPrint = new AddProductsToListAndPrint();
-                    addProductsToListAndPrint.addAndPrintProducts();
+                    addProductsToListAndPrint.printProducts();
                     break;
                 case 2:
-                    System.out.println();
+                    newDelivery.enterData();
+                    System.out.println(Warehouse.getWarehouse().getShelf());
+                    Warehouse.getWarehouse().printProducts();
                     break;
                 case 3:
                     System.out.println("");
