@@ -10,7 +10,7 @@ public class NewDelivery {
     String newDateOfEnteringTheWarehouse;
     String newUnit;
     int newAvailableQuantity;
-    String newAllowableShelfValue;
+    int newAllowableShelfValue;
     String newComment;
     String newNameProducer;
 
@@ -62,7 +62,7 @@ public class NewDelivery {
         return newUnit;
     }
 
-    public String enterAllowableShelfValueOfNewProduct() {
+    public int enterAllowableShelfValueOfNewProduct() {
         System.out.println("Въведете описанието продукта, който искате да поръчате: " + newAllowableShelfValue);
         this.newAllowableShelfValue = scanner.next();
         return newAllowableShelfValue;

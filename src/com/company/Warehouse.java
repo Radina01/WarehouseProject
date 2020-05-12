@@ -25,37 +25,57 @@ public class Warehouse {
     }
 
     public void addToTable(Product product) {
-        if (section == MAX_SECTION && shelf == MAX_SHELF && number == MAX_NUMBER_SQUARE_METERS) {
-            System.out.println("Няма достатъчно място");
-            return;
-        }
-        if ((product.getAvailableQuantity() + number > MAX_NUMBER_SQUARE_METERS)) {
-            int currentQuantity = product.getAvailableQuantity();
-            System.out.println("neshto");
-            product.setAvailableQuantity(MAX_NUMBER_SQUARE_METERS - number);
-            product.setLocation(section + "section" + ", " + shelf + "shelf" + ", " + number + "number");
+        int allowableShelfValue = product.getAllowableShelfValue();
+        int quantity = product.getAvailableQuantity();
 
-            this.tableWithProducts.add(product);
-            number = 0;
-            while (product.getAvailableQuantity() > MAX_NUMBER_SQUARE_METERS) {
-                if (shelf + 1 > MAX_SHELF) {
-                    if (section + 1 > MAX_SECTION) {
-                        System.out.println("Няма достатъчно място");
-                        return;
-                    } else section++;
-                } else shelf++;
-                product.setAvailableQuantity(product.getAvailableQuantity() - MAX_NUMBER_SQUARE_METERS);
+        for (int i = 0; i < quantity; i++) {
+            if(!nextItem()) return;
+            for (int j = 0; j < allowableShelfValue; j++) {
+                product.setLocation(section + "section" + ", " + shelf + "shelf" + ", " + number + "number");
+                this.tableWithProducts.add(product);
             }
-            product.setAvailableQuantity(product.getAvailableQuantity());
-            addToTable(product);
-        } else {
-            number += product.getAvailableQuantity();
-            product.setLocation(section + "section" + ", " + shelf + "shelf" + ", " + number + "number");
-            this.tableWithProducts.add(product);
         }
     }
 
+    private boolean nextItem() {
+        if (number + 1 > MAX_NUMBER_SQUARE_METERS) {
+            if (shelf + 1 > MAX_SHELF) {
+                if (section + 1 > MAX_SECTION) {
+                    System.out.println("Няма достатъчно място");
+                    return false;
+                } else section++;
+            } else shelf++;
+        } else number++;
+        return true;
+    }
+
     public void printProducts() {
+        List<Product> newProductsList = new ArrayList<>();
+        if(tableWithProducts.size() > 0) {
+            newProductsList.add(tableWithProducts.get(0));
+            for (int i = 1; i < tableWithProducts.size(); i++) {
+                for (int j = 0; j < newProductsList.size(); j++) {
+                    if (newProductsList.get(j).getNameProduct().equals(tableWithProducts.get(i).getNameProduct())) {
+                        newProductsList.get(j).setAvailableQuantity(tableWithProducts.get(i).getAvailableQuantity()
+                                + newProductsList.get(j).getAvailableQuantity());
+                    } else {
+                        newProductsList.add(tableWithProducts.get(i));
+                    }
+                }
+            }
+
+            for (Product p : newProductsList) {
+                System.out.println("Име: " + p.getNameProduct() + '\n' +
+                        "Налично количество: " + p.getAvailableQuantity() + '\n' +
+                        "Допустим брой на продуктите на рафт: " + p.getAllowableShelfValue() + '\n');
+            }
+        }
+        else System.out.println("Няма продукти в склада");
+        /*
+         */
+    }
+
+    public void printListOfProducts() {
         for (Product product : tableWithProducts) {
             System.out.println(
                     "Име: " + product.getNameProduct() + '\n' +

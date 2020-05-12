@@ -9,11 +9,11 @@ public class Product {
     private String unit;
     private int availableQuantity;
     private String location;
-    private String allowableShelfValue;
+    private int allowableShelfValue;
     private String comment;
 
 
-    public Product(String nameProduct, String description, String expiryDate, String dateEntryInWarehouse, String nameProducer, String unit, int availableQuantity, String allowableShelfValue, String comment) {
+    public Product(String nameProduct, String description, String expiryDate, String dateEntryInWarehouse, String nameProducer, String unit, int availableQuantity, int allowableShelfValue, String comment) {
         this.nameProduct = nameProduct;
         this.description = description;
         this.expiryDate = expiryDate;
@@ -53,7 +53,7 @@ public class Product {
         return location;
     }
 
-    public String getAllowableShelfValue() {
+    public int getAllowableShelfValue() {
         return allowableShelfValue;
     }
 
@@ -97,7 +97,7 @@ public class Product {
         this.location = location;
     }
 
-    public void setAllowableShelfValue(String allowableShelfValue) {
+    public void setAllowableShelfValue(int allowableShelfValue) {
         this.allowableShelfValue = allowableShelfValue;
     }
 
